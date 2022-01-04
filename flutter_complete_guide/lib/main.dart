@@ -46,8 +46,8 @@ class MyAppState extends State<MyApp> {
     
   ];
   //questions = [] -> does not work if questions is a const
-  var questionIndex = 0;
-  var _totalScore = 0;
+  var questionIndex = 1;
+  var _totalScore = 1;
 
   void _resetQuiz(){
     setState(() {
