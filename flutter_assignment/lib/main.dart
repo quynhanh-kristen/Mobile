@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var _quotes = ['Keep moving forward', 'Never give up', 'Try your best'];
+  var _quotes = ['It\'s ok to not be ok', 'Never give up', 'Try your best'];
   int quoteIndex = 0;
 
   void getNextQuote() {
