@@ -14,12 +14,12 @@ class TextControl extends StatelessWidget {
       children: [
         RaisedButton(
           onPressed: getPreviousQuote,
-          child: const Text('Previous'),
+          child: const Text('< Previous'),
           color: Colors.cyan,
         ),
         RaisedButton(
           onPressed: getNextQuote,
-          child: const Text('Next'),
+          child: const Text('Next >'),
           color: Colors.lime,
         ),
       ],
