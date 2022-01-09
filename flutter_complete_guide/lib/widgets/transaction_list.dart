@@ -4,13 +4,13 @@ import '../models/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
-
-  TransactionList(this.transactions);
+final Function deleteTx;
+  TransactionList(this.transactions, this.deleteTx);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 430,
       //ListView(chidren:[])  <- SingleChildScrollView()
       //ListView.builder() <- need limited item's number
       //ListView.builder() builds widgets as required  (when they can be seen)
@@ -38,20 +38,30 @@ class TransactionList extends StatelessWidget {
               itemBuilder: (ctx, index) {
                 return Card(
                   elevation: 5,
-                  margin: EdgeInsets.symmetric(                
-                    vertical:8,
+                  margin: EdgeInsets.symmetric(
+                    vertical: 8,
                     horizontal: 5,
                   ),
                   child: ListTile(
-                    title: Text(transactions[index].title, style: Theme.of(context).textTheme.headline6),
-                    subtitle: Text(DateFormat.yMMMd().format(transactions[index].date),),
-                    leading: CircleAvatar(                 
+                    title: Text(transactions[index].title,
+                        style: Theme.of(context).textTheme.headline6),
+                    subtitle: Text(
+                      DateFormat.yMMMd().format(transactions[index].date),
+                    ),
+                    leading: CircleAvatar(
                       radius: 30,
                       child: Padding(
                         padding: EdgeInsets.all(6),
                         child: FittedBox(
                             child: Text('\$${transactions[index].amount}')),
                       ),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(
+                        Icons.delete,
+                        color: Theme.of(context).errorColor,
+                      ),
+                      onPressed: () => deleteTx(transactions[index].id),
                     ),
                   ),
                 );
